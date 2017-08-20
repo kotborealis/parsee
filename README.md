@@ -15,7 +15,7 @@ const cmd = parsee('cmd_name', /* list of required arguments */ [
     [parsee.type.url] // and, optionally, a url
 ]);
 
-cmd.parse('cmd_name "ayy lmao" 1 https://github.com/ some random string');
+cmd('cmd_name "ayy lmao" 1 https://github.com/ some random string');
 /* returns
 [ 'ayy lmao', // type.string
   1, //type.number
@@ -27,7 +27,7 @@ cmd.parse('cmd_name "ayy lmao" 1 https://github.com/ some random string');
   [type.url]: [ 'https://github.com/' ]]
 */
 
-cmd.parse('cmd_name "ayy lmao" 1 some random string');
+cmd('cmd_name "ayy lmao" 1 some random string');
 /* returns
 [ 'ayy lmao', // type.string
   1, //type.number
@@ -39,7 +39,7 @@ cmd.parse('cmd_name "ayy lmao" 1 some random string');
   [type.url]: []] // no url here either
 */
 
-cmd.parse('cmd_name "no, this isn\'t a valid arguments');
+cmd('cmd_name "no, this isn\'t a valid arguments');
 /* returns false */
 ```
 
@@ -49,12 +49,12 @@ cmd.parse('cmd_name "no, this isn\'t a valid arguments');
 const cmd_non_strict = parsee('non_strict', [parsee.type.number, parsee.type.string], {strict: false}); // non-strict by default
 
 // For non-strict commands, you can specify arguments in any order
-// cmd_non_strict.parse('non_strict 1 str') ~~~ cmd_non_strict.parse('non_strict str 1')
+// cmd_non_strict('non_strict 1 str') ~~~ cmd_non_strict('non_strict str 1')
 
 const cmd_strict = parsee('strict', [parsee.type.number, parsee.type.string], {strict: true});
 
 // For strict commands, you must specify arguments in specified order
-// cmd_strict.parse('strict str 1') === false
+// cmd_strict('strict str 1') === false
 
 ```
 
@@ -68,7 +68,7 @@ const t_regex_defined_left_or_right = parsee.type.regex_defined(/left|right/);
 // Matches only strings that match regex
 
 const cmd_turn_enum = parsee('turn', [t_enum_left_or_right]);
-cmd_turn_enum.parse('turn left');
+cmd_turn_enum('turn left');
 /* returns
 [ 'left',
   [t_enum_left_or_right]: [ 'left' ],
@@ -84,6 +84,6 @@ cmd_turn_regex('turn right');
   raw_args_str: ' right',
   arbitrary_arg: '' ]
 
-// cmd_turn_enum.parse('turn AAAAAAA') === cmd_turn_regex('turn FFFFFF') === false;
+// cmd_turn_enum('turn AAAAAAA') === cmd_turn_regex('turn FFFFFF') === false;
 */
 ```
