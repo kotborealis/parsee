@@ -6,7 +6,7 @@ Smol node.js tool to parse command line style arguments
 
 ### General
 
-```
+```js
 const parsee = require('parsee');
 
 const cmd = parsee('cmd_name', /* list of required arguments */ [
@@ -45,7 +45,7 @@ cmd.parse('cmd_name "no, this isn\'t a valid arguments');
 
 ### Strict and non-strict
 
-```
+```js
 const cmd_non_strict = parsee('non_strict', [parsee.type.number, parsee.type.string], {strict: false}); // non-strict by default
 
 // For non-strict commands, you can specify arguments in any order
@@ -60,7 +60,7 @@ const cmd_strict = parsee('strict', [parsee.type.number, parsee.type.string], {s
 
 ### Enum and regex-defined types
 
-```
+```js
 const t_enum_left_or_right = parsee.type.enum('left', 'right');
 // Matches only 'left' or 'right' strings
 
