@@ -82,7 +82,7 @@ cmd_turn_regex('turn right');
 
 ### Rest argument
 
-```
+```js
 // To get string, that comes after all arguments, you can use parsee.type.rest
 
 const cmd_rest = parsee('/kick', [parsee.type.rest]);
