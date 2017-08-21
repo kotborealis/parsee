@@ -83,13 +83,13 @@ cmd_turn_regex('turn right');
 ### Rest argument
 
 ```js
-// To get string, that comes after all arguments, you can use parsee.type.rest
+// To get string that comes after all arguments, you can use parsee.type.rest
 
 const cmd_rest = parsee('/kick', [parsee.type.rest]);
 cmd_rest('/kick Arar rar!');
 /* returns
 [ 'Arar rar!', [parsee.type.rest]: [ 'Arar rar!' ] ]
+*/
 
 // parsee.type.rest argument **must** be the last argument
-*/
 ```
