@@ -1,4 +1,4 @@
-![parsee](https://raw.githubusercontent.com/kotborealis/parsee/master/parsee.png)
+![parsee](https://raw.githubusercontent.com/kotborealis/parsee/298dbd4f5a20f8c7a067c03db6f78ca0c94d4835/parsee.png)
 
 # Parse
 
